@@ -3,7 +3,7 @@ const inquirer = require('inquirer')
 const manager = require('./lib/manager');
 const engineer = require('./lib/engineer');
 const intern = require('./lib/intern');
-const manager = require('./lib/manager');
+
 
 const team = {
     managers: [],
@@ -32,6 +32,12 @@ const managerQuestions = () => {
         type:'input',
         name:'managersOfficeNumber',
         message: "What is the team manager's office number?",
+        },
+        {
+            type: 'list',
+            name:'teamChoices',
+            message: "Which type of team member would you like to add?",
+            choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
     ])
     .then((answers)=> teamManagerAnswers(answers))
@@ -42,6 +48,27 @@ const engineerQuestions = () =>{
             type: 'input',
             name: 'engineerName',
             message: "What is the engineer's name?",
+        },
+        {
+            type:'input',
+            name: 'enginnerId',
+            message: " What is the engineers Id?"
+        },
+        {
+            type:'input',
+            name: 'enginerEmail',
+            message: "What is the engineer's email?",
+        },
+        {
+            type:'input',
+            name:'engineerGithub',
+            message:"What is the engineer's Github?"
+        },
+        {
+            type: 'list',
+            name:'teamChoices',
+            message: "Which type of team member would you like to add?",
+            choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
     ])
 }
