@@ -40,7 +40,7 @@ const managerQuestions = () => {
             choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
     ])
-    .then((answers)=> teamManagerAnswers(answers))
+    .then((answers)=> managerAnswers(answers))
 }
 const engineerQuestions = () =>{
     return inquirer.prompt([
@@ -71,4 +71,36 @@ const engineerQuestions = () =>{
             choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
     ])
+    .then((answers)=> engineersAnswers(answers))
+}
+const internQuestions = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: "What is the intern's name?",
+        },
+        {
+            type:'input',
+            name: 'internId',
+            message: " What is the intern's Id?"
+        },
+        {
+            type:'input',
+            name: 'internEmail',
+            message: "What is the intern's email?",
+        },
+        {
+            type:'input',
+            name:'internSchool',
+            message:"What is the intern's school?"
+        },
+        {
+            type: 'list',
+            name:'teamChoices',
+            message: "Which type of team member would you like to add?",
+            choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
+        }
+    ])
+    .then((answers)=> engineersAnswers(answers))
 }
