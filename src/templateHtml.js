@@ -56,16 +56,33 @@ const createIntern = (intern) => {
 }
 
 createHtml = (data) => {
-    card = [];
+    cards = [];
 
     for (let i =0; i<data.length; i++){
         const teamMember = data[i];
         const position = teamMember.getRole();
 
         if (position === 'Manager'){
-            
+            const manCard = createManager(teamMember);
+
+            cards.push(manCard);
+        }
+
+        if(position === 'Engineer'){
+            const enCard = createEngineer(teamMember);
+
+            cards.push(enCard);
+        }
+
+        if(position === 'Intern'){
+            const internCard = createIntern(teamMember);
+
+            cards.push(internCard)
         }
     }
+
+    const teamMemberCards = cards.join('')
+    
 }
 const templateHTML = ( => {
     
