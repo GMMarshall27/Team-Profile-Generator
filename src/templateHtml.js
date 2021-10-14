@@ -1,7 +1,7 @@
 const createManager = (manager) => {
     return  `
     <div class="row">
-        <div class="col s12 m6">
+        <div class="col s4 m4">
             <div class="card red accent-2">
                 <div class="card-content white-text">
                     <span class="card-title">${manager.name}</span>
@@ -21,7 +21,7 @@ const createManager = (manager) => {
 const createEngineer = (engineer) => {
     return `
     <div class="row">
-        <div class="col s12 m6">
+        <div class="col s4 m4">
           <div class="card deep-purple darken-1">
             <div class="card-content white-text">
               <span class="card-title">${engineer.name}</span>
@@ -41,7 +41,7 @@ const createEngineer = (engineer) => {
 const createIntern = (intern) => {
     return `
     <div class="row">
-        <div class="col s12 m6">
+        <div class="col s4 m4">
           <div class="card blue lighten-2">
             <div class="card-content white-text">
               <span class="card-title">${intern.name}</span>

@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    background-color: antiquewhite;
+}
+
+.card {
+    width: 50%;
+    float: left;
+}
+.card-content{
+    text-align: center;
+    font-weight: bold;
+    }
