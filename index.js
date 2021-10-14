@@ -51,12 +51,12 @@ const engineerQuestions = () =>{
         },
         {
             type:'input',
-            name: 'enginnerId',
+            name: 'engineerId',
             message: " What is the engineers Id?"
         },
         {
             type:'input',
-            name: 'enginerEmail',
+            name: 'engineerEmail',
             message: "What is the engineer's email?",
         },
         {
@@ -102,5 +102,47 @@ const internQuestions = () => {
             choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
     ])
-    .then((answers)=> engineersAnswers(answers))
+    .then((answers)=> internAnswers(answers))
 }
+
+function managerAnswers(answers){
+    let name = answers.managerName;
+    let id =  answers.managerId;
+    let email = answers.managersEmail;
+    let officeNumber = answers.managersOfficeNumber
+    const newManager = new manager(name,id,email,officeNumber)
+
+    team.managers.push(newManager);
+    runQuestions(answers.teamChoices)
+}
+function engineersAnswers(answers){
+    let name = answers.engineerName;
+    let id = answers.engineerId;
+    let email = answers.engineerEmail;
+    let github = answers.engineerGithub;
+    const newEngineer = new engineer(name, id,email,github)
+    team.engineers.push(newEngineer);
+    runQuestions(answers.teamChoices);
+}
+function internAnswers(answers){
+    let name = answers.internName;
+    let id = answers.internId;
+    let email = answers.internEmail;
+    let school = answers.internSchool;
+    const newIntern = new intern(name, id,email,school)
+    team.engineers.push(newIntern);
+    runQuestions(answers.teamChoices);
+}
+
+function runQuestions(teamChoices){
+    switch(teamChoices){
+        case 'engineer':
+            return engineerQuestions()
+        case 'intern':
+            return internQuestions()
+        default: 
+        return generateHtml(team)
+    }
+}
+
+
